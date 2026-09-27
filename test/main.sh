@@ -30,7 +30,15 @@ if [ $DISK_USAGE_PERCENT -gt 5 ]; then
     echo "[INFO] $TIMESTAMP crontab executed" >> $FILE_LOG_PATH
     echo "[WARN] ALARM DISK USAGE ABOVE 5%: hostname: $HOSTNAME disk usage: $DISK_USAGE_PERCENT%" >> $FILE_LOG_PATH
 
-    aws sns publish --topic-arn "$SNS_ARN" --message "$JSON_MESSAGE"
+    if aws sns publish --topic-arn "$SNS_ARN" --message "$JSON_MESSAGE" ; then
+
+        echo "[INFO] $TIMESTAMP SNS published message successfully" >> $FILE_LOG_PATH
+
+    else
+
+        echo "[WARN] $TIMESTAMP SNS failed to publish message" >> $FILE_LOG_PATH
+
+    fi
 
 else
 
