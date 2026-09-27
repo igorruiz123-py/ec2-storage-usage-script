@@ -6,7 +6,7 @@ DISK="..."
 
 FILE_LOG_PATH="..."
 
-HOSTNAME=$HOSTNAME
+HOSTNAME="..."
 
 TIMESTAMP=$(TZ=America/Sao_Paulo date +"%Y-%m-%d %H:%M:%S")
 
