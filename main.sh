@@ -18,6 +18,7 @@ DISK_USAGE_PERCENT=$(($DISK_SIZE_USED_BYTES * 100 / $DISK_SIZE_BYTES))
 
 JSON_MESSAGE=$(cat <<EOF
     {
+        "alarm_id": "storage_alarm",
         "hostname": "$HOSTNAME",
         "disk": "$DISK",
         "usage_percent": "$DISK_USAGE_PERCENT"
